@@ -1,5 +1,4 @@
 iPhone/PhoneGapTutorial/build/*
 *.mode1v3
 *.pbxuser
-
-*/phonegap.js
+iPhone/PhoneGapTutorial/www/phonegap.js
