@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta name="viewport" content="width=320; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>PhoneGap</title>
+	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+    <link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	
+	<style>
+	
+	input 
+	{
+		width: 180px;
+		margin-bottom: 18px;
+		margin-top: 4px;
+		-webkit-border-radius: 5px;
+		left:100px;
+		position:absolute;
+	}
+	
+	input.disabled 
+	{
+		opacity: 0.5;
+	}
+	
+	label 
+	{
+		margin-bottom: 18px;
+		line-height:36px;
+	}
+	
+	</style>
+    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+
+	
+	function onWinLoad()
+	{
+		document.addEventListener("deviceready",onDeviceReady,false);
+	}
+	
+	function onDeviceReady()
+	{
+
+	}
+	
+	function onGetPhotoRollCallback(data)
+	{
+		photoRollPic.src = "data:image/jpeg;base64," + data;
+	}
+	
+	function onGetCameraPicCallback(data)
+	{
+		cameraPic.src = "data:image/jpeg;base64," + data;
+	}
+	
+	function onPhotoRollBtn()
+	{
+		navigator.camera.getPicture(onGetPhotoRollCallback,null,{sourceType:0,quality:100});
+	}
+	
+	function onCameraBtn()
+	{
+		navigator.camera.getPicture(onGetCameraPicCallback,null,{sourceType:1,quality:60});
+	}
+    
+    </script>
+  </head>
+  
+  <body id="stage" class="theme" onload="onWinLoad()">
+	<div class="topBar">
+		<a href="index.html">
+			<span class="back_button">Back</span>
+		</a>
+		<span class="pageTitle">Camera</span>	
+	</div>
+	
+	<a href="#" onclick="onCameraBtn();">
+		<div class="item">
+			<h2>Take a Camera Picture</h2>
+		</div>
+	</a>
+	
+	<div style="text-align:center;margin:20px;">
+		<img id="cameraPic" src="" style="width:auto;height:120px;"></img>
+	</div>
+	
+	<a href="#" onclick="onPhotoRollBtn();">
+		<div class="item">
+			<h2>Get a PhotoRoll Picture</h2>
+		</div>
+	</a>
+	
+	<div style="text-align:center;margin:20px;">
+		<img id="photoRollPic" src="" style="width:auto;height:120px;"></img>
+	</div>
+	
+	
+	
+	
+  
+
+  
+
+  </body>
+</html>
